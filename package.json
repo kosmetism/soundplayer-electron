@@ -13,7 +13,7 @@
     "watch": "npm run watch-main & npm run start-wds & npm run start-hot",
     "build-ui": "NODE_ENV=production webpack -p --config webpack.config.ui.prod.js --progress --colors",
     "build-main": "webpack -p --config webpack.config.main.js --progress --colors",
-    "package": "./node_modules/electron-packager/cli.js . $npm_package_productName --platform=darwin --arch=x64 --version=$npm_package_electronVersion --overwrite --out=dist --ignore='^/dist$' --ignore='^/screens$' --ignore='^/src$' --asar --prune",
+    "package": "./node_modules/electron-packager/cli.js . $npm_package_productName --platform=darwin --arch=x64 --version=$npm_package_electronVersion --overwrite --out=dist --ignore='^/(dist|screens|src|config|node_modules)$' --ignore='^/webpack.*$' --asar --prune",
     "rebuild": "./node_modules/.bin/electron-rebuild",
     "deploy": "npm run build-main && npm run build-ui && npm run package"
   },
