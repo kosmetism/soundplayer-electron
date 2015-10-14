@@ -12,7 +12,9 @@ var config = {
         libraryTarget: 'commonjs2'
     },
 
-    plugins: [],
+    plugins: [
+        new webpack.optimize.OccurenceOrderPlugin()
+    ],
 
     resolve: {
         extensions: ['', '.js', '.jsx', 'json'],
@@ -27,6 +29,10 @@ var config = {
             exclude: /node_modules/,
             loaders: ['babel?stage=0']
         }]
+    },
+
+    node: {
+        __dirname: true
     },
 
     target: 'atom'

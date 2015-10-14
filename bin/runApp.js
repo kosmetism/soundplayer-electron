@@ -1,2 +1,1 @@
-require('babel/register')({ stage: 0 });
-require('../index.js');
+require('../index.js')(require('path').join(__dirname, '../'));

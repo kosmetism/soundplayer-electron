@@ -3,17 +3,19 @@
   "productName": "Soundplayer",
   "version": "0.0.0",
   "electronVersion": "0.33.7",
-  "main": "./index.js",
+  "main": "./bin/runApp.js",
   "scripts": {
     "start": "electron .",
-    "start-dev": "npm run watch",
+    "start-dev": "DEV_TOOLS=1 npm run watch",
     "start-hot": "HOT_RELOAD=1 electron .",
     "start-wds": "node bin/runWebpackDevServer",
-    "watch": "npm run start-wds && npm run start-hot",
+    "watch-main": "webpack --config webpack.config.main.js --progress --colors --watch",
+    "watch": "npm run watch-main & npm run start-wds & npm run start-hot",
     "build-ui": "NODE_ENV=production webpack -p --config webpack.config.ui.prod.js --progress --colors",
-    "build-main": "webpack --config webpack.config.main.js --progress --colors",
+    "build-main": "webpack -p --config webpack.config.main.js --progress --colors",
     "package": "./node_modules/electron-packager/cli.js . $npm_package_productName --platform=darwin --arch=x64 --version=$npm_package_electronVersion --overwrite --out=dist --ignore='^/dist$' --ignore='^/screens$' --ignore='^/src$' --asar --prune",
-    "rebuild": "./node_modules/.bin/electron-rebuild"
+    "rebuild": "./node_modules/.bin/electron-rebuild",
+    "deploy": "npm run build-main && npm run build-ui && npm run package"
   },
   "devDependencies": {
     "babel": "^5.8.23",
@@ -33,8 +35,7 @@
     "transform-loader": "^0.2.3",
     "uglify-js": "^2.5.0",
     "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.12.0",
-    "webpack-target-electron-renderer": "^0.1.0"
+    "webpack-dev-server": "^1.12.0"
   },
   "dependencies": {
     "c0nfig": "^0.2.2",

@@ -6,5 +6,5 @@ node_modules
 dist
 lib
 
-public/build/**/*
+public/build
 index.js
