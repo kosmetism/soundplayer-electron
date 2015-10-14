@@ -1,5 +1,7 @@
 # Soundplayer 
 
+<img src="https://raw.githubusercontent.com/soundblogs/soundplayer-electron/master/screens/soundcloud.jpg" width="500" />
+
 ## Userflow
 
 1. Login screen
