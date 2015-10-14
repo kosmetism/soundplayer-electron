@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Soundplayer | Hot</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+    (function(d, s, id) {
+        if (d.getElementById(id)) return;
+        var cfg = require('c0nfig');
+        var fjs = d.getElementsByTagName(s)[0];
+        var js = fjs.parentNode.insertBefore(d.createElement(s), fjs);
+        js.id = id;
+        js.src = cfg.hotReloadUrl + 'bundle.js';
+    })(document, 'script', 'hot-bundle');
+    </script>
+</body>
+</html>

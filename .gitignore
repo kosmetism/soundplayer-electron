@@ -1,0 +1,10 @@
+.DS_Store
+node_modules
+*.log
+*.map
+
+dist
+lib
+
+public/build/**/*
+index.js

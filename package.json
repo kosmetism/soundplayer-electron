@@ -1,0 +1,49 @@
+{
+  "name": "soundplayer",
+  "productName": "Soundplayer",
+  "version": "0.0.0",
+  "electronVersion": "0.33.7",
+  "main": "./index.js",
+  "scripts": {
+    "start": "electron .",
+    "start-dev": "npm run watch",
+    "start-hot": "HOT_RELOAD=1 electron .",
+    "start-wds": "node bin/runWebpackDevServer",
+    "watch": "npm run start-wds && npm run start-hot",
+    "build-ui": "NODE_ENV=production webpack -p --config webpack.config.ui.prod.js --progress --colors",
+    "build-main": "webpack --config webpack.config.main.js --progress --colors",
+    "package": "./node_modules/electron-packager/cli.js . $npm_package_productName --platform=darwin --arch=x64 --version=$npm_package_electronVersion --overwrite --out=dist --ignore='^/dist$' --ignore='^/screens$' --ignore='^/src$' --asar --prune",
+    "rebuild": "./node_modules/.bin/electron-rebuild"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.25",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.19.0",
+    "cssnext-loader": "^1.0.1",
+    "electron-packager": "^5.1.0",
+    "electron-prebuilt": "^0.33.7",
+    "electron-rebuild": "^1.0.1",
+    "envify": "^3.4.0",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "html-webpack-plugin": "^1.6.2",
+    "object-assign": "^4.0.1",
+    "react-hot-loader": "^1.3.0",
+    "style-loader": "^0.12.4",
+    "transform-loader": "^0.2.3",
+    "uglify-js": "^2.5.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0",
+    "webpack-target-electron-renderer": "^0.1.0"
+  },
+  "dependencies": {
+    "c0nfig": "^0.2.2",
+    "minigrid": "^1.6.5",
+    "network-address": "^1.0.0",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-router": "^1.0.0-rc3",
+    "soundcloud": "^3.0.1",
+    "soundcloud-audio": "^0.1.6"
+  }
+}
