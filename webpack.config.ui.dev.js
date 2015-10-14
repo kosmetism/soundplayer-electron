@@ -2,9 +2,11 @@
 
 var webpack = require('webpack');
 var path = require('path');
+var assign = require('object-assign');
 var config = require('c0nfig');
+var baseConfig = require('./webpack.config.base');
 
-var config = {
+var config = assign(baseConfig, {
     hotReloadPort: config.hotReloadPort,
 
     devtool: 'cheap-module-eval-source-map',
@@ -27,13 +29,6 @@ var config = {
         new webpack.NoErrorsPlugin()
     ],
 
-    resolve: {
-        extensions: ['', '.js', '.jsx', 'json'],
-        packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main']
-    },
-
-    externals: ['web-frame'],
-
     module: {
         loaders: [{
             test: /\.jsx?$/,
@@ -43,10 +38,7 @@ var config = {
             test: /\.css$/,
             loaders: ['style', 'css', 'cssnext']
         }]
-    },
-
-    target: 'atom'
-};
-
+    }
+});
 
 module.exports = config;

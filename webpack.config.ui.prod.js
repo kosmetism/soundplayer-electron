@@ -1,10 +1,12 @@
 'use strict';
 
 var path = require('path');
+var assign = require('object-assign');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var baseConfig = require('./webpack.config.base');
 
-var config = {
+var config = assign(baseConfig, {
     entry: './src/ui/app',
 
     output: {
@@ -22,13 +24,6 @@ var config = {
         new ExtractTextPlugin('app.min.css')
     ],
 
-    resolve: {
-        extensions: ['', '.js', '.jsx', 'json'],
-        packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main']
-    },
-
-    externals: ['web-frame'],
-
     module: {
         loaders: [{
             test: /\.jsx?$/,
@@ -44,9 +39,7 @@ var config = {
         postLoaders: [{
             loader: 'transform?envify'
         }]
-    },
-
-    target: 'atom'
-};
+    }
+});
 
 module.exports = config;

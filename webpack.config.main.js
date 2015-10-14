@@ -2,8 +2,10 @@
 
 var webpack = require('webpack');
 var path = require('path');
+var assign = require('object-assign');
+var baseConfig = require('./webpack.config.base');
 
-var config = {
+var config = assign(baseConfig, {
     entry: './src/main/app',
 
     output: {
@@ -16,26 +18,13 @@ var config = {
         new webpack.optimize.OccurenceOrderPlugin()
     ],
 
-    resolve: {
-        extensions: ['', '.js', '.jsx', 'json'],
-        packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main']
-    },
-
-    externals: ['web-frame'],
-
     module: {
         loaders: [{
             test: /\.js?$/,
             exclude: /node_modules/,
             loaders: ['babel?stage=0']
         }]
-    },
-
-    node: {
-        __dirname: true
-    },
-
-    target: 'atom'
-};
+    }
+});
 
 module.exports = config;
