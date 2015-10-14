@@ -1,6 +1,6 @@
 # Soundplayer 
 
-<img src="https://raw.githubusercontent.com/soundblogs/soundplayer-electron/master/screens/soundcloud.jpg" width="500" />
+<img src="https://raw.githubusercontent.com/soundblogs/soundplayer-electron/master/screens/soundcloud.jpg" />
 
 ## Userflow
 
