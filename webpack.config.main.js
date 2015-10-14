@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var config = {
-    entry: './src/main/index',
+    entry: './src/main/app',
 
     output: {
         path: path.join(__dirname, '.'),
