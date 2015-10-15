@@ -6,16 +6,16 @@ class Child extends React.Component {
     render() {
         return (
             <div style={{
-                backgroundColor: 'red',
-                color: 'white',
+                backgroundColor: '#1E2022',
+                color: 'orange',
                 width: 500,
                 height: 500,
                 overflow: 'hidden'
             }}>
                 Hello World React - {env}!
                 <img src="./assets/soundcloud.png" />
-                22{process.versions['electron']}22
-                Zoom level - {webFrame.getZoomLevel()}
+                {process.versions['electron']}
+                &nbsp; {webFrame.getZoomLevel()}
             </div>
         );
     }

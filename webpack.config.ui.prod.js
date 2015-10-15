@@ -4,6 +4,7 @@ var path = require('path');
 var assign = require('object-assign');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
 var baseConfig = require('./webpack.config.base');
 
 var config = assign(baseConfig, {
@@ -41,5 +42,7 @@ var config = assign(baseConfig, {
         }]
     }
 });
+
+config.target = webpackTargetElectronRenderer(config);
 
 module.exports = config;

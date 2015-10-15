@@ -10,7 +10,5 @@ module.exports = {
         packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main']
     },
 
-    externals: ['web-frame'],
-
-    target: 'atom'
+    externals: ['web-frame']
 };

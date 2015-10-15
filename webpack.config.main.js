@@ -24,7 +24,9 @@ var config = assign(baseConfig, {
             exclude: /node_modules/,
             loaders: ['babel?stage=0']
         }]
-    }
+    },
+
+    target: 'atom'
 });
 
 module.exports = config;

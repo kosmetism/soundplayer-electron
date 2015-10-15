@@ -4,15 +4,19 @@ var webpack = require('webpack');
 var path = require('path');
 var assign = require('object-assign');
 var config = require('c0nfig');
+var webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
 var baseConfig = require('./webpack.config.base');
 
+var hotReloadUrl = config.hotReloadUrl;
+var hotReloadPort = config.hotReloadPort;
+
 var config = assign(baseConfig, {
-    hotReloadPort: config.hotReloadPort,
+    hotReloadPort: hotReloadPort,
 
     devtool: 'cheap-module-eval-source-map',
 
     entry: [
-        'webpack-dev-server/client?' + config.hotReloadUrl,
+        'webpack-dev-server/client?' + hotReloadUrl,
         'webpack/hot/only-dev-server',
         './src/ui/app'
     ],
@@ -20,7 +24,7 @@ var config = assign(baseConfig, {
     output: {
         path: path.join(__dirname, 'public', 'build'),
         filename: 'bundle.js',
-        publicPath: config.hotReloadUrl,
+        publicPath: hotReloadUrl,
         libraryTarget: 'commonjs2'
     },
 
@@ -40,5 +44,7 @@ var config = assign(baseConfig, {
         }]
     }
 });
+
+config.target = webpackTargetElectronRenderer(config);
 
 module.exports = config;
