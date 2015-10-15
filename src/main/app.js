@@ -1,4 +1,5 @@
 import app from 'app';
+import ipc from 'ipc';
 import BrowserWindow from 'browser-window';
 
 const HOT_RELOAD = process.env.HOT_RELOAD || false;
@@ -18,7 +19,9 @@ export default function init (startDir) {
             title: 'Soundplayer',
             width: 800,
             height: 600,
-            'title-bar-style': 'hidden'
+            'title-bar-style': 'hidden',
+            show: false,
+            transparent: true
         });
 
         mainWindow.loadUrl(`file://${startDir}/public/index${HOT_RELOAD ? '.hot' : ''}.html`);
@@ -29,6 +32,10 @@ export default function init (startDir) {
 
         mainWindow.on('closed', () => {
             mainWindow = null
+        });
+
+        ipc.on('ready', () => {
+            mainWindow.show();
         });
     });
 }

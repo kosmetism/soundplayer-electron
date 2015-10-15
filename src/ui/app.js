@@ -1,5 +1,6 @@
 import './app.css';
 
+import ipc from 'ipc';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -15,3 +16,7 @@ ReactDOM.render(
     <App />,
     document.getElementById('root')
 );
+
+setTimeout(() => {
+    ipc.send('ready');
+}, 10);
