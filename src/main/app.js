@@ -20,8 +20,7 @@ export default function init (startDir) {
             width: 800,
             height: 600,
             'title-bar-style': 'hidden',
-            show: false,
-            transparent: true
+            show: false
         });
 
         mainWindow.loadUrl(`file://${startDir}/public/index${HOT_RELOAD ? '.hot' : ''}.html`);
