@@ -1,3 +1,72 @@
+@import 'basscss';
+@import 'basscss-utility-headings';
+@import 'basscss-background-images';
+@import 'basscss-button-sizes';
+@import 'basscss-button-transparent';
+@import 'basscss-button-outline';
+
+/* globals */
 body {
-    background-color: #000;
+    background-color: #19191D;
+    color: #fff;
+}
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+.capitalize {
+    text-transform: capitalize;
+}
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+textarea.vert {
+    resize: vertical;
+}
+textarea.hor {
+    resize: horizontal;
+}
+textarea.no-resize {
+    resize:none;
+}
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.sc-button {
+    font-weight: 400;
+    padding-left: 50px;
+}
+.sc-button:after {
+    content: '';
+    position: absolute;
+    background: url('https://a-v2.sndcdn.com/assets/images/header/cloud@2x-e5fba4.png') no-repeat center;
+    background-size: cover;
+    width: 30px;
+    height: 13px;
+    left: 14px;
+    top: 10px;
+}
+
+/* variables */
+:root {
+    --font-family: 'Avenir Next', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Garuda, Verdana, Tahoma, sans-serif;
+    --orange: #f50;
 }

@@ -1,5 +1,5 @@
 import app from 'app';
-import ipc from 'ipc';
+import { ipcMain } from 'electron';
 import BrowserWindow from 'browser-window';
 
 const HOT_RELOAD = process.env.HOT_RELOAD || false;
@@ -17,13 +17,16 @@ export default function init (startDir) {
     app.on('ready', () => {
         mainWindow = new BrowserWindow({
             title: 'Soundplayer',
-            width: 800,
-            height: 600,
+            'min-width': 800,
+            'min-height': 600,
+            width: 1000,
+            height: 750,
             'title-bar-style': 'hidden',
             show: false
         });
 
-        mainWindow.loadUrl(`file://${startDir}/public/index${HOT_RELOAD ? '.hot' : ''}.html`);
+        console.log(HOT_RELOAD, startDir)
+        mainWindow.loadURL(`file://${startDir}/public/index${HOT_RELOAD ? '.hot' : ''}.html`);
 
         if (DEV_TOOLS) {
             mainWindow.openDevTools();
@@ -33,7 +36,7 @@ export default function init (startDir) {
             mainWindow = null
         });
 
-        ipc.on('ready', () => {
+        ipcMain.on('ready', () => {
             mainWindow.show();
         });
     });

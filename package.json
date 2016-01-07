@@ -39,7 +39,14 @@
     "webpack-target-electron-renderer": "^0.1.0"
   },
   "dependencies": {
+    "basscss": "^7.0.4",
+    "basscss-background-images": "0.0.9",
+    "basscss-button-outline": "^1.1.1",
+    "basscss-button-sizes": "^1.0.7",
+    "basscss-button-transparent": "^1.1.1",
+    "basscss-utility-headings": "0.0.6",
     "c0nfig": "^0.2.2",
+    "electron-prebuilt": "^0.36.2",
     "minigrid": "^1.6.5",
     "network-address": "^1.0.0",
     "react": "^0.14.0",
